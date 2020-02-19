@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   View,
@@ -6,16 +6,30 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  TextInput,
 } from 'react-native';
 import {Input} from '../components';
+import {useNavigation} from '@react-navigation/native';
 
-export default function LoginScreen({navigation}) {
+export default function LoginScreen() {
+  const navigation = useNavigation();
+  const [refInputPass, setRefInputPass] = useState<TextInput>();
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Image source={require('../assets/logo.png')} />
       <Text style={styles.title}>Hungry</Text>
-      <Input placeholder="Username" />
-      <Input placeholder="Password" secureTextEntry />
+      <Input
+        placeholder="Username"
+        onSubmitEditing={() => refInputPass?.focus()}
+        blurOnSubmit={false}
+        returnKeyType="next"
+      />
+      <Input
+        placeholder="Password"
+        secureTextEntry
+        refInput={instance => instance && setRefInputPass(instance)}
+      />
       <View style={styles.containerBottom}>
         <Text>New Here? Register</Text>
         <TouchableOpacity
