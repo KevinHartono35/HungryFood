@@ -1,20 +1,26 @@
 import React from 'react';
-import {View, StyleSheet, Text, Image} from 'react-native';
+import {View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
 
 export interface MenuItemProps {
-  menuName: String;
+  menuID: string;
+  menuName: string;
   basePrice: number;
   discountPercentage: number;
+  onPress?(id: string): void;
 }
 
 export default function MenuItem({
+  menuID,
   menuName,
   basePrice,
   discountPercentage,
+  onPress,
 }: MenuItemProps) {
   const discPrice = basePrice * ((100 - discountPercentage) / 100);
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => onPress && onPress(menuID)}>
       <Image style={styles.icon} source={require('../assets/burger.png')} />
       <View style={styles.menuContainer}>
         <Text style={styles.menuName}>{menuName}</Text>
@@ -23,7 +29,7 @@ export default function MenuItem({
           <Text style={styles.discountedPrice}>Rp. {discPrice}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -33,6 +39,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingHorizontal: 10,
     paddingVertical: 5,
+    marginVertical: 5,
   },
   icon: {
     width: '15%',
