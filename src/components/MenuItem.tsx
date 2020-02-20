@@ -12,7 +12,7 @@ export default function MenuItem({
   basePrice,
   discountPercentage,
 }: MenuItemProps) {
-  const discPrice = basePrice - basePrice * (discountPercentage / 100);
+  const discPrice = basePrice * ((100 - discountPercentage) / 100);
   return (
     <View style={styles.container}>
       <Image style={styles.icon} source={require('../assets/burger.png')} />
