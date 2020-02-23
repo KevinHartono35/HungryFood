@@ -33,7 +33,7 @@ export default function Modal() {
       </View>
 
       <TouchableOpacity style={styles.addButtonContainer}>
-        <Text style={styles.addbuttonText}>ADD TO CART</Text>
+        <Text style={styles.addButtonText}>ADD TO CART</Text>
       </TouchableOpacity>
       <DiscountBox
         style={styles.discountBox}
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     height: 30,
     backgroundColor: '#E53735',
   },
-  addbuttonText: {
+  addButtonText: {
     textAlign: 'center',
     textAlignVertical: 'center',
   },
