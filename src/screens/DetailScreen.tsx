@@ -1,20 +1,11 @@
 import React from 'react';
-import {
-  StyleSheet,
-  ScrollView,
-  View,
-  Image,
-  // TouchableOpacity,
-  Text,
-} from 'react-native';
-// import {useNavigation} from '@react-navigation/native';
-import {DiscountBox, MenuItem} from '../components';
+import {StyleSheet, ScrollView, View, Image, Text} from 'react-native';
+import {DiscountBox} from '../components';
 import CountdownCard from '../components/CountdownCard';
 import {CardItemList} from '../containers/general';
+import {MenuItemList} from '../containers/general';
 
 export default function DetailScreen() {
-  // const navigation = useNavigation();
-
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.bannerContainer}>
@@ -37,11 +28,7 @@ export default function DetailScreen() {
         <Text style={styles.segmentTitle}>Highest Discount</Text>
         <CardItemList />
         <Text style={styles.segmentTitle}>Menu</Text>
-        <MenuItem
-          menuName={'WHOOPER'}
-          basePrice={42800}
-          discountPercentage={50}
-        />
+        <MenuItemList />
       </View>
       <DiscountBox
         style={styles.discountBox}
