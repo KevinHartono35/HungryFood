@@ -8,6 +8,7 @@ import {
   HomeScreen,
   DetailScreen,
   RegisterScreen,
+  SWIPER,
 } from '../screens';
 
 export default function Router() {
@@ -16,6 +17,7 @@ export default function Router() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="SWIPER" component={SWIPER} />
         <Stack.Screen name="Payment" component={PaymentScreen} />
         <Stack.Screen name="Detail" component={DetailScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
